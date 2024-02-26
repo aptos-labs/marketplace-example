@@ -67,15 +67,11 @@ module marketplace::list_and_purchase {
         let listing_addr = object::object_address(&object);
         
         assert!(exists<Listing>(listing_addr), error::not_found(ENO_LISTING));
+        assert!(exists<FixedPriceListing<CoinType>>(listing_addr), error::not_found(ENO_LISTING));
 
-        let price = if (exists<FixedPriceListing<CoinType>>(listing_addr)) {
-            let FixedPriceListing {
-                price,
-            } = move_from<FixedPriceListing<CoinType>>(listing_addr);
-            price
-        } else {
-            abort (error::not_found(ENO_LISTING))
-        };
+        let FixedPriceListing {
+            price,
+        } = move_from<FixedPriceListing<CoinType>>(listing_addr);
 
         // The listing has concluded, transfer the asset and delete the listing. Returns the seller
         // for depositing any profit.
