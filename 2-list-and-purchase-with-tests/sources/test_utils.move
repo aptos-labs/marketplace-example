@@ -12,6 +12,7 @@ module marketplace::test_utils {
     use aptos_token_objects::token::Token;
     use aptos_token_objects::aptos_token;
     use aptos_token_objects::collection::Collection;
+    use marketplace::list_and_purchase;
 
     public inline fun setup(
         aptos_framework: &signer,
@@ -19,6 +20,7 @@ module marketplace::test_utils {
         seller: &signer,
         purchaser: &signer,
     ): (address, address, address) {
+        list_and_purchase::setup_test(marketplace);
         let (burn_cap, mint_cap) = aptos_coin::initialize_for_test(aptos_framework);
 
         let marketplace_addr = signer::address_of(marketplace);
