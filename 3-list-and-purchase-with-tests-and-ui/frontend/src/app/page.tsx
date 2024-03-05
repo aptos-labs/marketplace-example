@@ -2,44 +2,37 @@
 
 import { AllNfts } from "@/components/AllNfts";
 import { ListedNfts } from "@/components/ListedNfts";
-import {
-  FormControl,
-  FormLabel,
-  HStack,
-  Radio,
-  RadioGroup,
-  VStack,
-} from "@chakra-ui/react";
+import { HStack, Heading, Radio, RadioGroup, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function Page() {
-  const [listedOnly, setListedOnly] = useState(false);
+  const [radioValue, setRadioValue] = useState<"All" | "Listed Only">("All");
+
   return (
     <VStack>
-      <FormControl as="fieldset">
-        <FormLabel as="legend">NFTs of Aptogotchi Collection</FormLabel>
-        <RadioGroup defaultValue="View all">
-          <HStack>
-            <Radio
-              value="View all"
-              onChange={() => {
-                setListedOnly(false);
-              }}
-            >
-              View all
-            </Radio>
-            <Radio
-              value="Listed only"
-              onChange={() => {
-                setListedOnly(true);
-              }}
-            >
-              Listed only
-            </Radio>
-          </HStack>
-        </RadioGroup>
-      </FormControl>
-      {listedOnly ? <ListedNfts /> : <AllNfts />}
+      <Heading margin={4}>Aptogotchi NFTs</Heading>
+
+      <RadioGroup defaultValue="All">
+        <HStack justifyContent="center">
+          <Radio
+            value="All"
+            onChange={() => {
+              setRadioValue("All");
+            }}
+          >
+            View all
+          </Radio>
+          <Radio
+            value="Listed Only"
+            onChange={() => {
+              setRadioValue("Listed Only");
+            }}
+          >
+            Listed only
+          </Radio>
+        </HStack>
+      </RadioGroup>
+      {radioValue === "Listed Only" ? <ListedNfts /> : <AllNfts />}
     </VStack>
   );
 }
