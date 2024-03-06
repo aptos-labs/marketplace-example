@@ -33,17 +33,6 @@ export const NavBar = () => {
             Home
           </Link>
         </NextLink>
-        <NextLink href="/portfolio" passHref>
-          <Link
-            px={4}
-            py={4}
-            rounded={"md"}
-            fontWeight={"bold"}
-            _hover={{ textDecoration: "none", bg: "teal.600" }}
-          >
-            My Portfolio
-          </Link>
-        </NextLink>
         <NextLink href="/mint" passHref>
           <Link
             px={4}
@@ -53,6 +42,17 @@ export const NavBar = () => {
             _hover={{ textDecoration: "none", bg: "teal.600" }}
           >
             Mint
+          </Link>
+        </NextLink>
+        <NextLink href="/portfolio" passHref>
+          <Link
+            px={4}
+            py={4}
+            rounded={"md"}
+            fontWeight={"bold"}
+            _hover={{ textDecoration: "none", bg: "teal.600" }}
+          >
+            My Portfolio
           </Link>
         </NextLink>
       </HStack>

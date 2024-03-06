@@ -41,9 +41,10 @@ function PageContent() {
 
   if (network?.chainId != NetworkToChainId[Network.TESTNET].toString()) {
     return (
-      <Box>
-        <Heading>Please Connect to Testnet</Heading>
-      </Box>
+      <Alert status="info" variant="left-accent" marginY={8}>
+        <AlertIcon />
+        Please Connect to Testnet.
+      </Alert>
     );
   }
 
@@ -59,7 +60,7 @@ function Mint() {
     setShowAlert(true);
     setInterval(() => {
       setShowAlert(false);
-    }, 3000);
+    }, 5000);
   };
 
   const onSubmit = async () => {
@@ -96,7 +97,7 @@ function Mint() {
     return (
       <Alert status="success" variant="left-accent">
         <AlertIcon />
-        Minted successfully!
+        Minted successfully! Go to My Portfolio to see your Aptogotchi.
       </Alert>
     );
   }

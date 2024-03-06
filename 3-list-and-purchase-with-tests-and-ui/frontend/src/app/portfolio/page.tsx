@@ -30,9 +30,10 @@ function PageContent() {
 
   if (network?.chainId != NetworkToChainId[Network.TESTNET].toString()) {
     return (
-      <Box>
-        <Heading>Please Connect to Testnet</Heading>
-      </Box>
+      <Alert status="info" variant="left-accent" marginY={8}>
+        <AlertIcon />
+        Please Connect to Testnet.
+      </Alert>
     );
   }
 

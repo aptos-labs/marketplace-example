@@ -34,6 +34,11 @@ export const List = ({ nftTokenObjectAddr }: Props) => {
   const { account, signAndSubmitTransaction } = useWallet();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [price, setPrice] = useState<string>();
+
+  const onRefresh = () => {
+    window.location.reload();
+  };
+
   const onSubmit = async () => {
     if (!account) {
       throw new Error("Wallet not connected");
@@ -56,8 +61,10 @@ export const List = ({ nftTokenObjectAddr }: Props) => {
       .then(() => {
         console.log("Listed");
         onClose();
+        onRefresh();
       });
   };
+
   return (
     <Box>
       <Button onClick={onOpen}>List</Button>
@@ -83,11 +90,9 @@ export const List = ({ nftTokenObjectAddr }: Props) => {
               </NumberInput>
             </FormControl>
           </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="red" onClick={onClose}>
-              Close
-            </Button>
-            <Button colorScheme="blue" onClick={onSubmit}>
+          <ModalFooter gap={4}>
+            <Button onClick={onClose}>Close</Button>
+            <Button colorScheme="teal" onClick={onSubmit}>
               List
             </Button>
           </ModalFooter>
