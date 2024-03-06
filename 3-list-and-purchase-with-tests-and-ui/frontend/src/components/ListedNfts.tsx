@@ -5,6 +5,7 @@ import { Buy } from "./Buy";
 
 export const ListedNfts = () => {
   const listedNfts = useGetAllListedNfts();
+
   return listedNfts ? (
     <SimpleGrid spacing={10} columns={3}>
       {listedNfts.map((nft) => {

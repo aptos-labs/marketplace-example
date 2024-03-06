@@ -67,7 +67,9 @@ export const List = ({ nftTokenObjectAddr }: Props) => {
 
   return (
     <Box>
-      <Button onClick={onOpen}>List</Button>
+      <Button width={160} onClick={onOpen}>
+        List
+      </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

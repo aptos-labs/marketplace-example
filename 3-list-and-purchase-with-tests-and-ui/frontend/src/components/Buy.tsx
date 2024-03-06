@@ -10,6 +10,7 @@ type Props = {
 
 export const Buy = ({ listing }: Props) => {
   const { account, signAndSubmitTransaction } = useWallet();
+
   const onSubmit = async () => {
     if (!account) {
       throw new Error("Wallet not connected");
@@ -30,18 +31,25 @@ export const Buy = ({ listing }: Props) => {
         console.log("Bought");
       });
   };
-  console.log("listing", listing);
+
   return (
-    <Box>
+    <HStack flexDirection="column">
+      <Box display="flex" gap={2}>
+        <Text>Price: </Text>
+        <Text fontWeight="bold">{listing.price} APT</Text>
+      </Box>
+      <Button width={160} onClick={onSubmit}>
+        Buy
+      </Button>
       <Link
         href={`https://explorer.aptoslabs.com/account/${listing.seller_address}?network=testnet`}
         rel="noopener noreferrer"
         target="_blank"
       >
-        View seller on explorer
+        <Text fontSize="xs" color="GrayText">
+          View seller on explorer
+        </Text>
       </Link>
-      <Text>Price: {listing.price} APT</Text>
-      <Button onClick={onSubmit}>Buy</Button>
-    </Box>
+    </HStack>
   );
 };

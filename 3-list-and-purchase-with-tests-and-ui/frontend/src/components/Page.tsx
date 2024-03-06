@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export default function Page({ children }: { children: ReactNode }) {
   return (
-    <Box marginX={16} marginY={8}>
+    <Box marginX={16} marginTop={8} marginBottom={80}>
       {children}
     </Box>
   );

@@ -18,7 +18,7 @@ export default function Page() {
       <RadioGroup defaultValue="All NFTs" margin={4}>
         <HStack justifyContent="center">
           <Radio
-            value="All"
+            value="All NFTs"
             onChange={() => {
               setRadioValue("All NFTs");
             }}

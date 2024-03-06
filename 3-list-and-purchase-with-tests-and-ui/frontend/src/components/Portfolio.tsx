@@ -25,7 +25,12 @@ export const Portfolio = ({ address }: Props) => {
 
   return (
     <Box>
-      <HStack marginY={12} justifyContent="center" flexDirection="column">
+      <HStack
+        marginTop={4}
+        marginBottom={12}
+        justifyContent="center"
+        flexDirection="column"
+      >
         <Text fontSize="xl" fontWeight="bold" textAlign="center" marginY={4}>
           My NFTs
         </Text>
