@@ -2,17 +2,25 @@
 
 import { AllNfts } from "@/components/AllNfts";
 import { ListedNfts } from "@/components/ListedNfts";
-import { HStack, Heading, Radio, RadioGroup, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  Heading,
+  Radio,
+  RadioGroup,
+  VStack,
+} from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function Page() {
   const [radioValue, setRadioValue] = useState<"All" | "Listed Only">("All");
 
   return (
-    <VStack>
-      <Heading margin={4}>Aptogotchi NFTs</Heading>
-
-      <RadioGroup defaultValue="All">
+    <Box>
+      <Heading margin={4} textAlign="center">
+        Aptogotchi NFTs
+      </Heading>
+      <RadioGroup defaultValue="All" margin={4}>
         <HStack justifyContent="center">
           <Radio
             value="All"
@@ -33,6 +41,6 @@ export default function Page() {
         </HStack>
       </RadioGroup>
       {radioValue === "Listed Only" ? <ListedNfts /> : <AllNfts />}
-    </VStack>
+    </Box>
   );
 }

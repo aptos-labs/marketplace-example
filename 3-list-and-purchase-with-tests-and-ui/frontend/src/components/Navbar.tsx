@@ -41,7 +41,18 @@ export const NavBar = () => {
             fontWeight={"bold"}
             _hover={{ textDecoration: "none", bg: "teal.600" }}
           >
-            Portfolio
+            My Portfolio
+          </Link>
+        </NextLink>
+        <NextLink href="/mint" passHref>
+          <Link
+            px={4}
+            py={4}
+            rounded={"md"}
+            fontWeight={"bold"}
+            _hover={{ textDecoration: "none", bg: "teal.600" }}
+          >
+            Mint
           </Link>
         </NextLink>
       </HStack>
