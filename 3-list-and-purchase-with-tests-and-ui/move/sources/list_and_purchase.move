@@ -25,7 +25,7 @@ module marketplace::list_and_purchase {
         extend_ref: ExtendRef,
     }
 
-    // In practice we should use off-chain indexer to store all sellers instead of storing them on-chain.
+    // In production we should use off-chain indexer to store all sellers instead of storing them on-chain.
     // Storing it on-chain is costly since it's O(N) to remove a seller.
     struct Sellers has key {
         /// All addresses of sellers.
@@ -50,7 +50,7 @@ module marketplace::list_and_purchase {
         price: u64,
     }
 
-    // In practice we should use off-chain indexer to store the listings of a seller instead of storing it on-chain.
+    // In production we should use off-chain indexer to store the listings of a seller instead of storing it on-chain.
     // Storing it on-chain is costly since it's O(N) to remove a listing.
     struct SellerListings has key {
         /// All object addresses of listings the user has created.
