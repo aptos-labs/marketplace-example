@@ -12,6 +12,7 @@ import {
   FormLabel,
   Heading,
   Input,
+  VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { APTOGOTCHI_CONTRACT_ADDRESS, aptos } from "@/utils/aptos";
@@ -104,14 +105,8 @@ function Mint() {
 
   return (
     <Box>
-      <Flex flexDirection="column" alignItems="center" marginTop={12}>
-        <FormControl
-          marginBottom={8}
-          display="flex"
-          alignItems="center"
-          width={480}
-          gap={4}
-        >
+      <VStack marginTop={12}>
+        <FormControl display="flex" alignItems="center" width={480} gap={4}>
           <FormLabel>Aptogotchi Name</FormLabel>
           <Input
             width={320}
@@ -120,10 +115,10 @@ function Mint() {
             }}
           />
         </FormControl>
-        <Button width={480} onClick={onSubmit} margin={0}>
+        <Button marginTop={8} width={480} onClick={onSubmit}>
           Mint
         </Button>
-      </Flex>
+      </VStack>
     </Box>
   );
 }

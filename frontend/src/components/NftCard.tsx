@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Box, Card, Text, HStack } from "@chakra-ui/react";
+import { Box, Card, Text, VStack, Flex } from "@chakra-ui/react";
 import { BASE_PATH, bodies, ears, faces } from "@/utils/constants";
 import Link from "next/link";
 import {
@@ -38,20 +38,14 @@ export const NftCard = ({ nft, children }: Props) => {
 
   return (
     <Card>
-      <HStack
-        spacing={2}
-        flexDirection="column"
-        marginY={6}
-        marginX={4}
-        width={240}
-      >
+      <VStack spacing={2} marginY={6} marginX={4} width={240}>
         {aptogotchiImage}
-        <Box display="flex" gap={2}>
+        <Flex gap={2}>
           <Text fontSize="xl">Name: </Text>
           <Text fontSize="xl" fontWeight="bold">
             {nft.name}
           </Text>
-        </Box>
+        </Flex>
         <Link
           href={`https://explorer.aptoslabs.com/object/${nft.address}?network=testnet`}
           rel="noopener noreferrer"
@@ -62,7 +56,7 @@ export const NftCard = ({ nft, children }: Props) => {
           </Text>
         </Link>
         <Box marginTop={6}>{children}</Box>
-      </HStack>
+      </VStack>
     </Card>
   );
 };
