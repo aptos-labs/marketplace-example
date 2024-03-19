@@ -9,7 +9,7 @@ export const COLLECTION_CREATOR_ADDRESS =
   "0x714319fa1946db285254e3c7c75a9aac05277200e59429dd1f80f25272910d9c";
 export const COLLECTION_NAME = "Aptogotchi Collection";
 export const MARKETPLACE_CONTRACT_ADDRESS =
-  "0xbf60e962f7e34a0c317cbcd9454a7125a1c3c3d15ec620688e0f357100284605";
+  "0xdf284eb962076070fef6407ca6e93927b75b5607707a4f140a4e70fd2b230786";
 export const APT = "0x1::aptos_coin::AptosCoin";
 export const APT_UNIT = 100_000_000;
 
