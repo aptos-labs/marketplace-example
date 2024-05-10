@@ -73,11 +73,12 @@ module marketplace::list_and_purchase {
         });
     }
 
+    #[view]
     public fun get_marketplace_signer_addr(): address {
         object::create_object_address(&@marketplace, APP_OBJECT_SEED)
     }
 
-    public fun get_marketplace_signer(marketplace_signer_addr: address): signer acquires MarketplaceSigner {
+    fun get_marketplace_signer(marketplace_signer_addr: address): signer acquires MarketplaceSigner {
         object::generate_signer_for_extending(&borrow_global<MarketplaceSigner>(marketplace_signer_addr).extend_ref)
     }
 
